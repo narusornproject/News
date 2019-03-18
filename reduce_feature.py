@@ -18,7 +18,11 @@ def indexReduce(dictionary, vocab_tf, min_count):
 
 def wordReduce(bagWord, index_reduce):
     for i in bagWord:
-        for j in index_reduce:
-            try: i.remove(j)
-            except: pass
+        if len(i) > 1:
+            for j in index_reduce:
+                if len(i) <= 1:
+                    break
+                try: i.remove(j)
+                except: pass
+
     return bagWord
